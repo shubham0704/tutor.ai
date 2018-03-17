@@ -31,14 +31,7 @@
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            {% questions = ''%}
-            {% answers = ''%}
-            {%	for question_set in questions: %}
-                {% for question in question_set: %}
-                    {% questions.append(' '.join(question[0]).replace('blank_0','________'))%}
-                    {% answers.append(question[1]) %}
-                {% end %}
-            {% end %}
+            
 
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">{{'\n'.join(questions)}}</div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">{{'\n'.join(answers)}}</div>

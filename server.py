@@ -58,7 +58,7 @@ class MLHandler(RequestHandler):
         print(absolute_path)
         try:
             fh = open(absolute_path, 'wb')
-        except FileNotFoundError:
+        except Exception as e:
             os.makedirs('uploads') 
             fh = open(absolute_path, 'wb')
         fh.write(fileinfo['body'])
@@ -66,7 +66,8 @@ class MLHandler(RequestHandler):
         try:
             with open(absolute_path, 'rb') as f:
                 f.read()
-        except FileNotFoundError:
+        except Exception as e:
+            print (e)
             return {
                 "error": True,
                 "message": "there was an error"
@@ -83,10 +84,10 @@ class MLHandler(RequestHandler):
             ss = SentenceSelection(ratio=ratio)
             sentences = ss.prepare_sentences(document)
             sents = sentences.values()[:]
-            questions = qgen.generate_questions(sents)
+            questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
             G = GraphBuilder(mc=mc)
-            self.render("answer", questions=questions)
+            self.render("answer.html", questions=questions, answers=answers)
             # self.write(json.dumps({
             #         'error': False,
             #         'message': "Uploaded"
