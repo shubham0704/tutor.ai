@@ -59,7 +59,7 @@ class MLHandler(RequestHandler):
         try:
             fh = open(absolute_path, 'wb')
         except Exception as e:
-            os.makedirs('uploads') 
+            os.makedirs('uploads')
             fh = open(absolute_path, 'wb')
         fh.write(fileinfo['body'])
         fh.close()
@@ -87,6 +87,7 @@ class MLHandler(RequestHandler):
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
             G = GraphBuilder(mc=mc)
+            print(questions," ",answers)
             self.render("answer.html", questions=questions, answers=answers)
             # self.write(json.dumps({
             #         'error': False,
