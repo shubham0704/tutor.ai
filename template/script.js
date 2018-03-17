@@ -11,7 +11,7 @@ var TxtRotate = function (el, toRotate, period) {
 $(document).ready(function() {
    $("#MyModal").modal();
  });
- 
+
 TxtRotate.prototype.tick = function () {
     var i = this.loopNum % this.toRotate.length;
     var fullTxt = this.toRotate[i];

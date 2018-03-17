@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.css" />
-        <link href="bootstrap-tour.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link href="http://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
         <link href="../static/style.css" rel="stylesheet">
@@ -26,25 +26,56 @@
               </header>
               <div class="container">
                   <div class="row">
-                      <div class="col-12">
+                      <div class="col-12 animated rotateInUpLeft">
                           <h1 class="d-flex justify-content-center text-white animate rubberBand ">Making your learning experience easier with tutor.ai</h1>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-12 col-md-6 offset-md-3 t">
-                          <h1 class="hd">Your own
+                          <h1 class="hd animated slideInLeft">Your own
                               <span class="txt-rotate" data-period="1000" data-rotate='[ "Personal Tutor", "Study Boddy", "mind maps", "tutor", "test-taker"]'></span>
                           </h1>
-                          <h2>One stop solution to all-round study-assistance</h2>
+                          <h2 class="animated rotateInDownRight ">One stop solution to your <span class="txt-rotate" data-period="1" data-rotate='[ "Study assistance","concept explanations","and much more"]'></span>
+</h2>
                       </div>
                   </div>
 
           </div>
       </div>
+<<<<<<< HEAD
+      <div class="section" style="background:linear-gradient(160deg,#02ccba,#aa7ecd);">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 offset-md-1 col-md-10">
+              <div  style="width:90%;height:500px;">
+                <div id="luffy" class="card" style="padding:20%;border-radius:30px;">
+                <form method="post" enctype="multipart/form-data" action="/">
+                    <div class="row custom-file">
+                        <!-- <button id="upload-button">Select PDF</button> -->
+                        <div class="col-12 col-md-10 offset-md-1">
+                        <input type="file" name="thefile" class=" animated slideInRight" style="border-radius:10px;margin:80px;animation-delay:2s" id="file-to-upload">
+                        <br><br><br>
+                        <label class="custom-file-label text-align-left" for="file-to-upload">Choose a file to upload</label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-12  col-md-6 offset-md-3">
+                    <div style="border-radius:8px"><input type="submit" class="btn btn-default btn-outline-success animated rotateIn btn-block" style="animation-delay:1s" id="submit" name="thefile" value="Upload"></div>
+                  </div>
+                  </div>
+                </form>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+=======
       <div class="section upload" >
         <iframe src="./upload" width="95%" height="85%" style="margin:2%;border:1px solid #232425;border-radius:25px"></iframe>
+>>>>>>> c870f5df193f5329c9150d9a5efebb4572158ce0
       </div>
-      <div class="section nami" >
+      <div class="section" style="background:linear-gradient(160deg,#02ccba,#aa7ecd);" >
         <div class="container">
           <center><div class="card text-center" style="width:50%;padding:10%;margin:10%;background:black;color:white;opacity:0.7">
                 <div class="card-header">
@@ -53,13 +84,14 @@
                 <div class="card-body">
                   <div class="form-group row">
                       <div class="col-sm-10 offset-sm-1">
-                          <a class="btn btn-outline-info" href="graph.html" target="_blank">View Mind-Map</a>
+                          <a id="aa" onclick="myfunc()" class="btn btn-outline-info" href="graph.html" target="_blank">View Mind-Map</a>
                       </div>
                   </div>
                 </div>
                 <div class="card-footer text-muted">
                   Click on the above button to view the mind map
                 </div>
+        
         </div></center>
       </div>
     </div>
@@ -72,6 +104,7 @@
           </div>
         </div>
       </div>
+    </div>
     <!-- <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
