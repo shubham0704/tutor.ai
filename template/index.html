@@ -1,268 +1,93 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="/home/ashu/bower_components/fullpage.js/jquery.fullPage.css" />
+        <link href="bootstrap-tour.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="http://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+        <link href="style.css" rel="stylesheet"
+        <script src="pdf.js"></script>
+        <script src="pdf.worker.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="mytour.js"></script>
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="bootstrap.tooltip.js"></script>
+    <script src="bootstrap.popover.js"></script>
+    <script src="bootstrap-tour.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/home/ashu/bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <div id="fullpage">
+    	<div class="section">
+        <header class="head jumbotron">
+              </header>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-12">
+                          <h1 class="d-flex justify-content-center text-white ">Making your learning experience easier with tutor.ai</h1>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-12 col-md-6 offset-md-3 t">
+                          <h1 class="hd">Your own
+                              <span class="txt-rotate" data-period="1000" data-rotate='[ "Personal Tutor", "Study Boddy", "mind maps", "tutor", "test-taker"]'></span>
+                          </h1>
+                          <h2>One stop solution to all-round study-assistance</h2>
+                      </div>
+                  </div>
 
-    <title>The tutor</title>
-    <script src="pdf.js"></script>
-    <script src="pdf.worker.js"></script>
-    <style type="text/css">
-
-        #upload-button {
-            width: 150px;
-            display: block;
-            margin: 20px auto;
-        }
-
-        #file-to-upload {
-            display: none;
-        }
-
-        #pdf-main-container {
-            width: 400px;
-            /*margin: auto;*/
-        }
-
-        #pdf-loader {
-            display: none;
-            text-align: center;
-            color: #999999;
-            font-size: 13px;
-            line-height: 100px;
-            height: 100px;
-        }
-
-        #pdf-contents {
-            display: none;
-        }
-
-        #pdf-meta {
-            overflow: hidden;
-            margin: 0 0 20px 0;
-        }
-
-        #pdf-buttons {
-            float: left;
-        }
-
-        #page-count-container {
-            float: right;
-        }
-
-        #pdf-current-page {
-            display: inline;
-        }
-
-        #pdf-total-pages {
-            display: inline;
-        }
-
-        #pdf-canvas {
-            border: 1px solid rgba(0,0,0,0.2);
-            box-sizing: border-box;
-        }
-
-        #page-loader {
-            height: 100px;
-            line-height: 100px;
-            text-align: center;
-            display: none;
-            color: #999999;
-            font-size: 13px;
-        }
-
-    </style>
-</head>
-
-<body>
-
-<!-- <button id="upload-button">Select PDF</button>
-<input type="file" id="file-to-upload" accept="application/pdf" /> -->
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            tutor.ai
-        </a>
-    </div>
-</nav>
-<br>
-<div class="container">
-    <div class="mine">
-    <form method="post" enctype="multipart/form-data" action="/">
-        <div class="custom-file">
-            <!-- <button id="upload-button">Select PDF</button> -->
-            <input type="file"  name="thefile" class="custom-file-input" id="file-to-upload" accept="application/pdf">
-            <label class="custom-file-label" for="file-to-upload">Choose file</label>
-        </div>
-        <br><br>
-        <input type="submit" class="btn btn-primary" id="submit" name="thefile" value="Upload">
-    </form>
-    <div id="pdf-main-container" style="text-align: center;">
-        <div id="pdf-loader">Loading document ...</div>
-        <div id="pdf-contents">
-            <div id="pdf-meta">
-                <br><br>
-                <div id="pdf-buttons">
-                    <button class="btn" id="pdf-prev">Previous</button>
-                    <button class="btn" id="pdf-next">Next</button>
+          </div>
+      </div>
+      <div class="section upload" >
+        <iframe src="./upload.html" width="95%" height="85%" style="margin:2%;border:1px solid #232425;border-radius:25px"></iframe>
+      </div>
+      <div class="section nami" >
+        <div class="container">
+          <center><div class="card text-center" style="width:50%;padding:10%;margin:10%;background:black;color:white;opacity:0.7">
+                <div class="card-header">
+                  MindMap
                 </div>
-                <div id="page-count-container">Page <div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
-            </div>
-            <canvas id="pdf-canvas" width="600"></canvas>
-            <div id="page-loader">Loading page ...</div>
+                <div class="card-body">
+                  <div class="form-group row">
+                      <div class="col-sm-10 offset-sm-1">
+                          <input type="text" class="form-control" id="input" placeholder="Write your answer here">
+                      </div>
+                  </div>
+                </div>
+                <div class="card-footer text-muted">
+                  Click on the above button to view the mind map
+                </div>
+        </div></center>
+      </div>
+    </div>
+
+      <div class="section" >
+        <center><h2 style="color:white">Let's try some questions</h2></center>
+          <iframe src="four.html" width="95%" height="85%" style="margin:2%;border:1px solid #232425;border-radius:25px"></iframe>
+      </div>
+    </div>
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
         </div>
-    </div>
-    </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script>
-
-//  $('.notmine').hide();
-//
-//  $('#submit').on('click', function(e) {
-//    e.preventDefault();
-//    console.log('hi');
-//    var formData=new FormData($('form')[0]);
-//    console.log(formData);
-//    $.ajax({
-//      url: 'http://localhost:8080/',
-//      type: 'POST',
-//      data: formData,
-//      success: function (data) {
-//        if(data['error'] === false){
-//          $('.mine').hide();
-//          $('.notmine').show();
-//        }
-//      },
-//      cache: false,
-//      contentType: false,
-//      processData: false
-//    });
-//  });
-
-
-  $(".custom-file-input").change(function(){
-    var fieldVal = $(this).val();
-    if (fieldVal !== undefined || fieldVal !== "") {
-      $(".custom-file-label").text(fieldVal);
-    }
-  });
-
-  var __PDF_DOC,
-    __CURRENT_PAGE,
-    __TOTAL_PAGES,
-    __PAGE_RENDERING_IN_PROGRESS = 0,
-    __CANVAS = $('#pdf-canvas').get(0),
-    __CANVAS_CTX = __CANVAS.getContext('2d');
-
-  function showPDF(pdf_url) {
-    $("#pdf-loader").show();
-
-    PDFJS.getDocument({ url: pdf_url }).then(function(pdf_doc) {
-      __PDF_DOC = pdf_doc;
-      __TOTAL_PAGES = __PDF_DOC.numPages;
-
-      // Hide the pdf loader and show pdf container in HTML
-      $("#pdf-loader").hide();
-      $("#pdf-contents").show();
-      $("#pdf-total-pages").text(__TOTAL_PAGES);
-
-      // Show the first page
-      showPage(1);
-    }).catch(function(error) {
-      // If error re-show the upload button
-      $("#pdf-loader").hide();
-      $("#upload-button").show();
-
-      alert(error.message);
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    <script>
+    $(document).ready(function() {
+    	$('#fullpage').fullpage();
     });
-  }
-
-  function showPage(page_no) {
-    __PAGE_RENDERING_IN_PROGRESS = 1;
-    __CURRENT_PAGE = page_no;
-
-    // Disable Prev & Next buttons while page is being loaded
-    $("#pdf-next, #pdf-prev").attr('disabled', 'disabled');
-
-    // While page is being rendered hide the canvas and show a loading message
-    $("#pdf-canvas").hide();
-    $("#page-loader").show();
-
-    // Update current page in HTML
-    $("#pdf-current-page").text(page_no);
-
-    // Fetch the page
-    __PDF_DOC.getPage(page_no).then(function(page) {
-      // As the canvas is of a fixed width we need to set the scale of the viewport accordingly
-      var scale_required = __CANVAS.width / page.getViewport(1).width;
-
-      // Get viewport of the page at required scale
-      var viewport = page.getViewport(scale_required);
-
-      // Set canvas height
-      __CANVAS.height = viewport.height;
-
-      var renderContext = {
-        canvasContext: __CANVAS_CTX,
-        viewport: viewport
-      };
-
-      // Render the page contents in the canvas
-      page.render(renderContext).then(function() {
-        __PAGE_RENDERING_IN_PROGRESS = 0;
-
-        // Re-enable Prev & Next buttons
-        $("#pdf-next, #pdf-prev").removeAttr('disabled');
-
-        // Show the canvas and hide the page loader
-        $("#pdf-canvas").show();
-        $("#page-loader").hide();
-      });
-    });
-  }
-
-  // Upon click this should should trigger click on the #file-to-upload file input element
-  // This is better than showing the not-good-looking file input element
-  // $("#upload-button").on('click', function() {
-  // 	$("#file-to-upload").trigger('click');
-  // });
-
-  // When user chooses a PDF file
-  $("#file-to-upload").on('change', function() {
-    // Validate whether PDF
-    if(['application/pdf'].indexOf($("#file-to-upload").get(0).files[0].type) == -1) {
-      alert('Error : Not a PDF');
-      return;
-    }
-
-    $("#upload-button").hide();
-
-    // Send the object url of the pdf
-    showPDF(URL.createObjectURL($("#file-to-upload").get(0).files[0]));
-  });
-
-  // Previous page of the PDF
-  $("#pdf-prev").on('click', function() {
-    if(__CURRENT_PAGE != 1)
-      showPage(--__CURRENT_PAGE);
-  });
-
-  // Next page of the PDF
-  $("#pdf-next").on('click', function() {
-    if(__CURRENT_PAGE != __TOTAL_PAGES)
-      showPage(++__CURRENT_PAGE);
-  });
-
-</script>
-
-</body>
+    </script>
+  </body>
 </html>
