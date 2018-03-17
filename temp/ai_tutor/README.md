@@ -1,2 +1,2 @@
 # ai_tutor
-An AI tutor for strengthening your concepts
+Your study buddy . To help you master your concepts faster
