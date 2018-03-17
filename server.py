@@ -22,7 +22,6 @@ class MyAppException(HTTPError):
 class BaseHandler(RequestHandler):
 
     def write_error(self, flag, **kwargs):
-        self.set_header('Content-Type', 'application/json')
         if self.settings.get("serve_traceback") and "exc_info" in kwargs:
             lines = []
             for line in traceback.format_exception(*kwargs["exc_info"]):
@@ -40,12 +39,6 @@ class BaseHandler(RequestHandler):
 
 
 class MLHandler(RequestHandler):
-
-    def set_default_headers(self):
-        self.set_header("Access-Control-Allow-Origin", "*")
-        self.set_header("Access-Control-Allow-Headers", "x-requested-with")
-        self.set_header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
-        self.set_header('Content-type', 'application/json')
 
     @staticmethod
     def upload(fileinfo):
@@ -71,7 +64,7 @@ class MLHandler(RequestHandler):
             }
         return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname}
 
-    async def post(self):
+    def post(self):
         response = self.upload(fileinfo=self.request.files['thefile'][0])
         if response['error'] == False:
             document = response['file_loc']
@@ -90,12 +83,6 @@ class MLHandler(RequestHandler):
         self.render('index')
 
 
-class my404handler(BaseHandler):
-    def get(self):
-        self.write(json.dumps({
-            'error': True,
-            'message': self._reason
-        }))
 
 
 if __name__ == "__main__":
@@ -106,10 +93,10 @@ if __name__ == "__main__":
         "debug": True,
         "cookie_secret": "LPBDqiL4S8KGi54y5eXFLoSiKE+wz0vajAU6K9aZOJ4="
     }
-    app = Application(handlers=[(r"/", MLHandler)], **settings,
+    app = Application(handlers=[(r"/", MLHandler)],
                       template_path=os.path.join(os.path.dirname(__file__), "template"),
                       static_path=os.path.join(os.path.dirname(__file__), "static"),
-                      )
+                      **settings)
     http_server = httpserver.HTTPServer(app)
     http_server.listen(os.environ.get("PORT", options.port))
     IOLoop.instance().start()

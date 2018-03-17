@@ -19,7 +19,7 @@ class GraphBuilder:
 	unique_dict = {}
 	nid = 0
 	unique_words = {}
-	giant_graph = nx.Graph()
+	giant_graph = nx.DiGraph()
 	def __init__(self,mc):
 		self.mc = mc
 		self.giant_graph.add_node(self.nid,{'label':self.mc})
@@ -48,7 +48,7 @@ class GraphBuilder:
 			triples[0].append(self.mc)
 		
 		
-		graph = nx.Graph()
+		graph = nx.DiGraph()
 		joined_triple = []
 		for ele in triples:
 			joined = " ".join(word for word in ele)
@@ -182,7 +182,7 @@ class GraphBuilder:
 		plt.show()
 
 	def get_json(self):
-		data = json_graph.node_link_data(self.giant_graph) 
+		data = json_graph.tree_data(self.giant_graph, root=0) 
 		return data
 
 
@@ -234,6 +234,6 @@ if __name__ == '__main__':
 	#print giant_graph.nodes()
 	#print giant_graph.edges()
 	# print(str(G.get_json()))
-	#G.plot_graph(giant_graph)
+	G.plot_graph(giant_graph)
 	# print sents
 	
