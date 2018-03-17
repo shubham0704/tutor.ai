@@ -37,6 +37,15 @@ class BaseHandler(RequestHandler):
                     'message': self._reason
                 }))
 
+class fourHandler(RequestHandler):
+    def get(self):
+        self.render("four.html")
+
+
+class uploadHandler(RequestHandler):
+    def get(self):
+        self.render("upload.html")
+
 
 class MLHandler(RequestHandler):
 
@@ -92,10 +101,15 @@ if __name__ == "__main__":
         "debug": True,
         "cookie_secret": "LPBDqiL4S8KGi54y5eXFLoSiKE+wz0vajAU6K9aZOJ4="
     }
-    app = Application(handlers=[(r"/", MLHandler)],
-                      template_path=os.path.join(os.path.dirname(__file__), "template"),
-                      static_path=os.path.join(os.path.dirname(__file__), "static"),
-                      **settings)
+    app = Application(handlers=[
+        (r"/", MLHandler),
+        (r"/upload", uploadHandler),
+        (r"/four", fourHandler)
+    ],
+        template_path=os.path.join(os.path.dirname(__file__), "template"),
+        static_path=os.path.join(os.path.dirname(__file__), "static"),
+        **settings
+    )
     http_server = httpserver.HTTPServer(app)
     http_server.listen(os.environ.get("PORT", options.port))
     IOLoop.instance().start()
