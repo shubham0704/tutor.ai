@@ -7,6 +7,7 @@ from tornado.options import define, options
 import uuid
 import json
 from os.path import splitext
+from io import BytesIO
 # from ai_tutor.get_triples import QuestionGenerator
 # from ai_tutor.sentence_selector import SentenceSelection
 # from ai_tutor.mind_map import main_concept, GraphBuilder
@@ -64,8 +65,8 @@ class MLHandler(RequestHandler):
         fh.write(fileinfo['body'])
         fh.close()
         try:
-            with open(absolute_path, 'wb') as f:
-                f.close()
+            with open(absolute_path, 'rb') as f:
+                f.read()
         except FileNotFoundError:
             return {
                 "error": True,
@@ -73,20 +74,24 @@ class MLHandler(RequestHandler):
             }
         return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname}
 
-    # def post(self):
-        # response = self.upload(fileinfo=self.request.files['thefile'][0])
-        # if response['error'] == False:
-        #     document = response['file_loc']
-        #     qgen = QuestionGenerator()
-        #     ratio = 0.4
-        #     ss = SentenceSelection(ratio=ratio)
-        #     sentences = ss.prepare_sentences(document)
-        #     sents = sentences.values()[:]
-        #     questions = qgen.generate_questions(sents)
-        #     mc = main_concept(sents)
-        #     G = GraphBuilder(mc=mc)
-        #     self.render("answer", questions=questions)
-
+    def post(self):
+        response = self.upload(fileinfo=self.request.files['thefile'][0])
+        print(response)
+        if response['error'] == False:
+            document = os.path.join(os.path.dirname(__file__),response['file_loc'])
+            # qgen = QuestionGenerator()
+            # ratio = 0.4
+            # ss = SentenceSelection(ratio=ratio)
+            # sentences = ss.prepare_sentences(document)
+            # sents = sentences.values()[:]
+            # questions = qgen.generate_questions(sents)
+            # mc = main_concept(sents)
+            # G = GraphBuilder(mc=mc)
+            # self.render("answer", questions=questions)
+            self.write(json.dumps({
+                    'error': False,
+                    'message': "Uploaded"
+                 }))
 
     def get(self):
         self.render('index.html')
