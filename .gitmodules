@@ -1,0 +1,3 @@
+[submodule "ai_tutor"]
+	path = ai_tutor
+	url = https://github.com/shubham0704/ai_tutor
