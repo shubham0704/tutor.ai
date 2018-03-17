@@ -8,6 +8,10 @@ body {
     cursor: pointer;
 }
 
+.col{
+    background: #28BABE;
+}
+
 .upload{
   background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/03/Dark-Pattern-For-Free-Download.jpg");
   background-size:cover;

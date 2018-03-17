@@ -5,3 +5,4 @@ nltk==3.2.2
 spacy==1.9.0
 tornado==4.4.2
 Unidecode==0.04.21
+textract==1.6.1
