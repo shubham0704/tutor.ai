@@ -2,121 +2,99 @@
 <html>
   <head>
     <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.css" />
+        <link rel="stylesheet" type="text/css" href="/home/ashu/bower_components/fullpage.js/jquery.fullPage.css" />
+        <link href="bootstrap-tour.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link href="http://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
-        <link href="../static/style.css" rel="stylesheet">
-        <script src="../static/pdf.js"></script>
-        <script src="../static/pdf.worker.js"></script>
+        <link href="style.css" rel="stylesheet"
+        <script src="pdf.js"></script>
+        <script src="pdf.worker.js"></script>
         <script src="http://d3js.org/d3.v3.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="mytour.js"></script>
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
   </head>
   <body>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="../static/script.js"></script>
+    <script src="script.js"></script>
+    <script src="bootstrap.tooltip.js"></script>
+    <script src="bootstrap.popover.js"></script>
+    <script src="bootstrap-tour.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.6/jquery.fullpage.js"></script>
+    <script type="text/javascript" src="/home/ashu/bower_components/fullpage.js/jquery.fullPage.js"></script>
     <div id="fullpage">
     	<div class="section">
         <header class="head jumbotron">
               </header>
               <div class="container">
                   <div class="row">
-                      <div class="col-12 animated rotateInUpLeft">
-                          <h1 class="d-flex justify-content-center text-white animate rubberBand ">Making your learning experience easier with tutor.ai</h1>
+                      <div class="col-12">
+                          <h1 class="d-flex justify-content-center text-white ">Making your learning experience easier with tutor.ai</h1>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-12 col-md-6 offset-md-3 t">
-                          <h1 class="hd animated slideInLeft">Your own
+                          <h1 class="hd">Your own
                               <span class="txt-rotate" data-period="1000" data-rotate='[ "Personal Tutor", "Study Boddy", "mind maps", "tutor", "test-taker"]'></span>
                           </h1>
-                          <h2 class="animated rotateInDownRight ">One stop solution to your <span class="txt-rotate" data-period="1" data-rotate='[ "Study assistance","concept explanations","and much more"]'></span>
-</h2>
+                          <h2>One stop solution to all-round study-assistance</h2>
                       </div>
                   </div>
 
           </div>
       </div>
-<<<<<<< HEAD
-      <div class="section" style="background:linear-gradient(160deg,#02ccba,#aa7ecd);">
+      <div class="section" style="background:linear-gradient(160deg,#02ccba,#aa7ecd)" >
         <div class="container">
           <div class="row">
             <div class="col-sm-12 offset-md-1 col-md-10">
-              <div  style="width:90%;height:500px;">
-                <div id="luffy" class="card" style="padding:20%;border-radius:30px;">
-                <form method="post" enctype="multipart/form-data" action="/">
-                    <div class="row custom-file">
-                        <!-- <button id="upload-button">Select PDF</button> -->
-                        <div class="col-12 col-md-10 offset-md-1">
-                        <input type="file" name="thefile" class=" animated slideInRight" style="border-radius:10px;margin:80px;animation-delay:2s" id="file-to-upload">
-                        <br><br><br>
-                        <label class="custom-file-label text-align-left" for="file-to-upload">Choose a file to upload</label>
+              <div class="card offset-md-2 col-md-8" style="padding:10%">
+                <div class="card-body">
+                  <form method="post" enctype="multipart/form-data" action="/">
+                      <div class="row custom-file">
+                          <!-- <button id="upload-button">Select PDF</button> -->
+                          <div class="col-12 col-md-10 offset-md-1">
+                          <input type="file" name="thefile" class="custom-file-input" id="file-to-upload" accept="application/pdf">
+                          <label class="custom-file-label" for="file-to-upload">Choose file</label>
+                        </div>
                       </div>
+                      <br><br>
+                      <div class="row">
+                        <div class="col-12  col-md-6 offset-md-3">
+                      <input type="submit" class="btn btn-outline-success btn-block" id="submit" name="thefile" value="Upload">
                     </div>
-
-                    <div class="row">
-                      <div class="col-12  col-md-6 offset-md-3">
-                    <div style="border-radius:8px"><input type="submit" class="btn btn-default btn-outline-success animated rotateIn btn-block" style="animation-delay:1s" id="submit" name="thefile" value="Upload"></div>
-                  </div>
-                  </div>
-                </form>
-              </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-=======
-      <div class="section upload" >
-        <iframe src="./upload" width="95%" height="85%" style="margin:2%;border:1px solid #232425;border-radius:25px"></iframe>
->>>>>>> c870f5df193f5329c9150d9a5efebb4572158ce0
       </div>
-      <div class="section" style="background:linear-gradient(160deg,#02ccba,#aa7ecd);" >
+      <div class="section" style="background:linear-gradient(200deg,#aa7ecd,#02ccba)" >
         <div class="container">
           <center><div class="card text-center" style="width:50%;padding:10%;margin:10%;background:black;color:white;opacity:0.7">
                 <div class="card-header">
                   MindMap
                 </div>
                 <div class="card-body">
-                  <div class="form-group row">
-                      <div class="col-sm-10 offset-sm-1">
-                          <a id="aa" onclick="myfunc()" class="btn btn-outline-info" href="graph.html" target="_blank">View Mind-Map</a>
-                      </div>
-                  </div>
+                  A mind-map helps us understand the concepts and the relationships between them.
                 </div>
+                <center><a href="graph.html" class="btn btn-outline-success">View mind-map</a></center>
                 <div class="card-footer text-muted">
                   Click on the above button to view the mind map
                 </div>
-        
         </div></center>
       </div>
     </div>
 
-      <div class="section sanji" >
-        <center><h2 style="color:white" class="animate infinite rubberBand">Let's try some questions</h2></center>
-        <div class="row">
-          <div class="offset-md-1 col-md-10 col-sm-12">
-            <
-          </div>
-        </div>
+      <div class="section" style="background:linear-gradient(200deg,#aa7ecd,#02ccba)" >
+        <center><h2 style="color:white">Let's try some questions</h2></center>
+
       </div>
     </div>
-    <!-- <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div> -->
+
     <script>
     $(document).ready(function() {
     	$('#fullpage').fullpage();
