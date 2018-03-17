@@ -7,9 +7,9 @@ from tornado.options import define, options
 import uuid
 import json
 from os.path import splitext
-from ai_tutor.get_triples import QuestionGenerator
-from ai_tutor.sentence_selector import SentenceSelection
-from ai_tutor.mind_map import main_concept, GraphBuilder
+# from ai_tutor.get_triples import QuestionGenerator
+# from ai_tutor.sentence_selector import SentenceSelection
+# from ai_tutor.mind_map import main_concept, GraphBuilder
 
 __UPLOADS__ = "uploads/"
 define("port", default=8080, help="runs on the given port", type=int)
@@ -64,23 +64,23 @@ class MLHandler(RequestHandler):
             }
         return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname}
 
-    def post(self):
-        response = self.upload(fileinfo=self.request.files['thefile'][0])
-        if response['error'] == False:
-            document = response['file_loc']
-            qgen = QuestionGenerator()
-            ratio = 0.4
-            ss = SentenceSelection(ratio=ratio)
-            sentences = ss.prepare_sentences(document)
-            sents = sentences.values()[:]
-            questions = qgen.generate_questions(sents)
-            mc = main_concept(sents)
-            G = GraphBuilder(mc=mc)
-            self.render("answer", questions=questions)
+    # def post(self):
+        # response = self.upload(fileinfo=self.request.files['thefile'][0])
+        # if response['error'] == False:
+        #     document = response['file_loc']
+        #     qgen = QuestionGenerator()
+        #     ratio = 0.4
+        #     ss = SentenceSelection(ratio=ratio)
+        #     sentences = ss.prepare_sentences(document)
+        #     sents = sentences.values()[:]
+        #     questions = qgen.generate_questions(sents)
+        #     mc = main_concept(sents)
+        #     G = GraphBuilder(mc=mc)
+        #     self.render("answer", questions=questions)
 
 
     def get(self):
-        self.render('index')
+        self.render('index.html')
 
 
 
@@ -89,7 +89,6 @@ if __name__ == "__main__":
     print("listening on port "+str(options.port))
     options.parse_command_line()
     settings = {
-        "default_handler_class": my404handler,
         "debug": True,
         "cookie_secret": "LPBDqiL4S8KGi54y5eXFLoSiKE+wz0vajAU6K9aZOJ4="
     }
