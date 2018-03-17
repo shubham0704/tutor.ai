@@ -7,7 +7,7 @@
 .node circle {
   fill: #fff;
   stroke: #1f1f7a;
-  stroke-width: 1.5px;
+  stroke-width: 5px;
 
 }
 .node text {
@@ -128,11 +128,11 @@
          "id": 0,
          "label": "Babur"
      };
-var diameter = 800;
+var diameter = 2000;
 var margin = {top: 20, right: 120, bottom: 20, left: 120},
     width = diameter,
     height = diameter;
-    
+
 var i = 0,
     duration = 350,
     root;
@@ -232,7 +232,7 @@ function click(d) {
     d.children = d._children;
     d._children = null;
   }
-  
+
   update(d);
 }
 // Collapse nodes

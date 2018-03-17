@@ -1,0 +1,166 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  background: #222;
+  color: #aaa
+}
+.node {
+    cursor: pointer;
+}
+
+.upload{
+  background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/03/Dark-Pattern-For-Free-Download.jpg");
+  background-size:cover;
+  box-shadow: 3px 3px 3px gray;
+  border: black;
+}
+
+.ashu{
+  opacity: 1;
+  background: gray;
+  width: 40%
+  border-radius:15px;
+  margin: 0% 30% 0% 30%;
+}
+.mycard{
+  background: black;
+  opacity: 0.6;
+}
+.container1{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.nami{
+  background-image: url("dark.jpg");
+}
+
+.sanji{
+  background-image: url("dark2.jpg");
+  background-size: cover;
+}
+
+.node circle {
+    fill: #fff;
+    stroke: #1f1f7a;
+    stroke-width: 1.5px;
+
+}
+
+
+#upload-button {
+    width: 150px;
+    display: block;
+    margin: 20px auto;
+}
+
+body{
+  width: 100%;
+}
+
+#file-to-upload {
+    display: none;
+}
+
+#pdf-main-container {
+    width: 400px;
+    /*margin: auto;*/
+}
+
+#pdf-loader {
+    display: none;
+    text-align: center;
+    color: #999999;
+    font-size: 13px;
+    line-height: 100px;
+    height: 100px;
+}
+
+#pdf-contents {
+    display: none;
+}
+
+#pdf-meta {
+    overflow: hidden;
+    margin: 0 0 20px 0;
+}
+
+#pdf-buttons {
+    float: left;
+}
+
+#page-count-container {
+    float: right;
+}
+
+#pdf-current-page {
+    display: inline;
+}
+
+            #pdf-total-pages {
+                display: inline;
+            }
+
+            #pdf-canvas {
+                border: 1px solid rgba(0,0,0,0.2);
+                box-sizing: border-box;
+            }
+
+            #page-loader {
+                height: 100px;
+                line-height: 100px;
+                text-align: center;
+                display: none;
+                color: #999999;
+                font-size: 13px;
+            }
+
+
+.node text {
+    font: 10px sans-serif;
+    color: antiquewhite;
+}
+
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+h1,h2 {
+  font-weight: 200;
+  margin: 0.4em 0;
+}
+h1 { font-size: 3.5em; }
+h2 {
+  color: #888;
+  font-size: 2em;
+}
+/* .jumbotron{
+    height:400px;
+} */
+.head{
+    width: 100%;
+    height: 560px;
+    z-index: -1000;
+    background: linear-gradient(160deg,#02ccba,#aa7ecd);
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: skew(0deg,-15deg);
+    transform: skew(0deg,-15deg);
+}
+.t{
+    position: relative;
+    margin-top:17%;
+}
+
+
+.hd{
+    width:900px;
+}
