@@ -25,8 +25,7 @@
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body style="background:linear-gradient(160deg,#02ccba,#aa7ecd)">
-
+<body style="background:linear-gradient(160deg,#02ccba,#aa7ecd);min-height:100vh">
   <div id="mind" class="container">
     <div class="row">
       <div class="col-12 col-md-12" style="border-radius:25px">
@@ -37,18 +36,10 @@
       </div>
     </div>
 
-    <!-- <script type="text/javascript">
-      $(document).ready(function(){
-        $("#b").on('click',function(){
-          $("#mind").css("display","block");
-          $("#sec").css("display","none");
-        });
-      });
-    </script> -->
+    <hr>
 
-  </div>
-<br><br>
-<div class="row">
+    <div class="col-md-12">
+      <div class="row">
         <div class="col-sm-12 offset-md-1 col-md-10">
           <h2 style="margin:50px;font-family:Roboto;color:white">Test your progress by answering these questions</h2>
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -88,7 +79,7 @@
         </div>
       </div>
               <!-- Controls -->
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
             </a>
@@ -96,244 +87,245 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
             </a>
-<script src="http://d3js.org/d3.v3.min.js"></script>
 
-<script type="text/javascript">
-  $('.carousel').carousel({
-    interval: 6000,
-    pause: "false"
-  });
-</script>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </div>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
 
-<script>
-//original code see fiddle http://jsfiddle.net/Nivaldo/CbGh2/
-var pubs =
-    {
-        "children": [
-            {
-                "id": 1,
-                "label": "Ibrahim_Lodi the_First_Battle_of_Panipat 1526_CE the_Mughal_empire"
-            },
-            {
-                "children": [
-                    {
-                        "id": 3,
-                        "label": "historical_records Babur him Delhi that_time"
-                    }
-                ],
-                "id": 2,
-                "label": "According Ibrahim_Lodi"
-            },
-            {
-                "children": [
-                    {
-                        "id": 5,
-                        "label": "1524 Babur Ibrahim"
-                    }
-                ],
-                "id": 4,
-                "label": "Daulat_Khan_Lodi"
-            },
-            {
-                "id": 6,
-                "label": "Samarkand the_third_time his_attention his_empire north"
-            },
-            {
-                "id": 7,
-                "label": "the"
-            },
-            {
-                "id": 8,
-                "label": "that_time Ibrahim_Lodi_of_the_Afghan_Lodi_dynasty Hindu_Rajput_Confederacy"
-            },
-            {
-                "children": [
-                    {
-                        "id": 10,
-                        "label": "opposition Rana_Sanga_of_Mewar the_battle Babur_foreigner"
-                    }
-                ],
-                "id": 9,
-                "label": "who"
-            },
-            {
-                "id": 11,
-                "label": "his_attempt Fergana control"
-            },
-            {
-                "id": 12,
-                "label": "Persian tiger"
-            },
-            {
-                "id": 13,
-                "label": "Samarkand the_vilayat"
-            },
-            {
-                "id": 14,
-                "label": "partnership Ismail parts Samarkand the"
-            },
-            {
-                "children": [
-                    {
-                        "id": 16,
-                        "label": "1501 his_attempt vain"
-                    }
-                ],
-                "id": 15,
-                "label": "both_vilayats"
-            },
-            {
-                "children": [
-                    {
-                        "id": 18,
-                        "label": "1504 Kabul the_rule infant"
-                    }
-                ],
-                "id": 17,
-                "label": "which"
-            },
-            {
-                "children": [
-                    {
-                        "id": 20,
-                        "label": "the_Indian_subcontinent"
-                    }
-                ],
-                "id": 19,
-                "label": "Tiger';[2][3"
-            },
-            {
-                "id": 21,
-                "label": "Transoxiana day"
-            }
-        ],
-        "id": 0,
-        "label": "Babur"
-    };
-var diameter = 800;
-var margin = {top: 20, right: 120, bottom: 20, left: 120},
-   width = diameter,
-   height = diameter;
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $('.carousel').carousel({
+      interval: false,
+      pause: true
+    });
+  </script>
+  <script>
+  //original code see fiddle http://jsfiddle.net/Nivaldo/CbGh2/
+  var pubs =
+      {
+          "children": [
+              {
+                  "id": 1,
+                  "label": "Ibrahim_Lodi the_First_Battle_of_Panipat 1526_CE the_Mughal_empire"
+              },
+              {
+                  "children": [
+                      {
+                          "id": 3,
+                          "label": "historical_records Babur him Delhi that_time"
+                      }
+                  ],
+                  "id": 2,
+                  "label": "According Ibrahim_Lodi"
+              },
+              {
+                  "children": [
+                      {
+                          "id": 5,
+                          "label": "1524 Babur Ibrahim"
+                      }
+                  ],
+                  "id": 4,
+                  "label": "Daulat_Khan_Lodi"
+              },
+              {
+                  "id": 6,
+                  "label": "Samarkand the_third_time his_attention his_empire north"
+              },
+              {
+                  "id": 7,
+                  "label": "the"
+              },
+              {
+                  "id": 8,
+                  "label": "that_time Ibrahim_Lodi_of_the_Afghan_Lodi_dynasty Hindu_Rajput_Confederacy"
+              },
+              {
+                  "children": [
+                      {
+                          "id": 10,
+                          "label": "opposition Rana_Sanga_of_Mewar the_battle Babur_foreigner"
+                      }
+                  ],
+                  "id": 9,
+                  "label": "who"
+              },
+              {
+                  "id": 11,
+                  "label": "his_attempt Fergana control"
+              },
+              {
+                  "id": 12,
+                  "label": "Persian tiger"
+              },
+              {
+                  "id": 13,
+                  "label": "Samarkand the_vilayat"
+              },
+              {
+                  "id": 14,
+                  "label": "partnership Ismail parts Samarkand the"
+              },
+              {
+                  "children": [
+                      {
+                          "id": 16,
+                          "label": "1501 his_attempt vain"
+                      }
+                  ],
+                  "id": 15,
+                  "label": "both_vilayats"
+              },
+              {
+                  "children": [
+                      {
+                          "id": 18,
+                          "label": "1504 Kabul the_rule infant"
+                      }
+                  ],
+                  "id": 17,
+                  "label": "which"
+              },
+              {
+                  "children": [
+                      {
+                          "id": 20,
+                          "label": "the_Indian_subcontinent"
+                      }
+                  ],
+                  "id": 19,
+                  "label": "Tiger';[2][3"
+              },
+              {
+                  "id": 21,
+                  "label": "Transoxiana day"
+              }
+          ],
+          "id": 0,
+          "label": "Babur"
+      };
+  var diameter = 800;
+  var margin = {top: 20, right: 120, bottom: 20, left: 120},
+     width = diameter,
+     height = diameter;
 
-var i = 0,
-   duration = 350,
-   root;
-var tree = d3.layout.tree()
-   .size([360, diameter / 2 - 80])
-   .separation(function(a, b) { return (a.parent == b.parent ? 1 : 10) / a.depth; });
-var diagonal = d3.svg.diagonal.radial()
-   .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
-var svg = d3.select("#map").append("svg")
-   .attr("width", width )
-   .attr("height", height )
- .append("g")
-   .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
-root = pubs;
-root.x0 = height / 2;
-root.y0 = 0;
-root.children.forEach(collapse); // start with all children collapsed
-update(root);
-d3.select(self.frameElement).style("height", "800px");
-function update(source) {
- // Compute the new tree layout.
- var nodes = tree.nodes(root),
-     links = tree.links(nodes);
- // Normalize for fixed-depth.
- nodes.forEach(function(d) { d.y = d.depth * 140; });
- // Update the nodes…
- var node = svg.selectAll("g.node")
-     .data(nodes, function(d) { return d.id || (d.id = ++i); });
- // Enter any new nodes at the parent's previous position.
- var nodeEnter = node.enter().append("g")
-     .attr("class", "node")
-     //.attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
-     .on("click", click);
- nodeEnter.append("circle")
-     .attr("r", 20)
-     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; })
-     .style("transform","scale(2.0)");
+  var i = 0,
+     duration = 350,
+     root;
+  var tree = d3.layout.tree()
+     .size([360, diameter / 2 - 80])
+     .separation(function(a, b) { return (a.parent == b.parent ? 1 : 10) / a.depth; });
+  var diagonal = d3.svg.diagonal.radial()
+     .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+  var svg = d3.select("#map").append("svg")
+     .attr("width", width )
+     .attr("height", height )
+   .append("g")
+     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+  root = pubs;
+  root.x0 = height / 2;
+  root.y0 = 0;
+  root.children.forEach(collapse); // start with all children collapsed
+  update(root);
+  d3.select(self.frameElement).style("height", "800px");
+  function update(source) {
+   // Compute the new tree layout.
+   var nodes = tree.nodes(root),
+       links = tree.links(nodes);
+   // Normalize for fixed-depth.
+   nodes.forEach(function(d) { d.y = d.depth * 140; });
+   // Update the nodes…
+   var node = svg.selectAll("g.node")
+       .data(nodes, function(d) { return d.id || (d.id = ++i); });
+   // Enter any new nodes at the parent's previous position.
+   var nodeEnter = node.enter().append("g")
+       .attr("class", "node")
+       //.attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+       .on("click", click);
+   nodeEnter.append("circle")
+       .attr("r", 20)
+       .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; })
+       .style("transform","scale(2.0)");
 
- nodeEnter.append("text")
-     .attr("x", 1e-6)
-     .attr("dy", "18px")
-     .attr("text-anchor", "start")
-     //.attr("transform", function(d) { return d.x < 180 ? "translate(0)" : "rotate(180)translate(-" + (d.name.length * 8.5)  + ")"; })
-     .text(function(d) { return d.label; })
-     .style("fill-opacity", 1e-6)
-     .style("font-weight","bold")
-     .style("font-size","12p")
-     .style("font-family","cursive");
- // Transition nodes to their new position.
- var nodeUpdate = node.transition()
-     .duration(duration)
-     .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
- nodeUpdate.select("circle")
-     .attr("r", 4.5)
-     .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
- nodeUpdate.select("text")
-     .style("fill-opacity", 1)
-     .attr("transform", function(d) { return d.x < 180 ? "translate(0)" : "rotate(180)translate(-" + (d.label.length + 60)  + ")"; });
- // TODO: appropriate transform
- var nodeExit = node.exit().transition()
-     .duration(duration)
-     //.attr("transform", function(d) { return "diagonal(" + source.y + "," + source.x + ")"; })
-     .remove();
- nodeExit.select("circle")
-     .attr("r", 20);
- nodeExit.select("text")
-     .style("fill-opacity", 20);
- // Update the links…
- var link = svg.selectAll("path.link")
-     .data(links, function(d) { return d.target.id; });
- // Enter any new links at the parent's previous position.
- link.enter().insert("path", "g")
-     .attr("class", "link")
-     .attr("d", function(d) {
-       var o = {x: source.x0, y: source.y0};
-       return diagonal({source: o, target: o});
-     });
- // Transition links to their new position.
- link.transition()
-     .duration(duration)
-     .attr("d", diagonal);
- // Transition exiting nodes to the parent's new position.
- link.exit().transition()
-     .duration(duration)
-     .attr("d", function(d) {
-       var o = {x: source.x, y: source.y};
-       return diagonal({source: o, target: o});
-     })
-     .remove();
- // Stash the old positions for transition.
- nodes.forEach(function(d) {
-   d.x0 = d.x;
-   d.y0 = d.y;
- });
-}
-// Toggle children on click.
-function click(d) {
- if (d.children) {
-   d._children = d.children;
-   d.children = null;
- } else {
-   d.children = d._children;
-   d._children = null;
- }
-
- update(d);
-}
-// Collapse nodes
-function collapse(d) {
- if (d.children) {
+   nodeEnter.append("text")
+       .attr("x", 1e-6)
+       .attr("dy", "18px")
+       .attr("text-anchor", "start")
+       //.attr("transform", function(d) { return d.x < 180 ? "translate(0)" : "rotate(180)translate(-" + (d.name.length * 8.5)  + ")"; })
+       .text(function(d) { return d.label; })
+       .style("fill-opacity", 1e-6)
+       .style("font-weight","bold")
+       .style("font-size","12p")
+       .style("font-family","cursive");
+   // Transition nodes to their new position.
+   var nodeUpdate = node.transition()
+       .duration(duration)
+       .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+   nodeUpdate.select("circle")
+       .attr("r", 4.5)
+       .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+   nodeUpdate.select("text")
+       .style("fill-opacity", 1)
+       .attr("transform", function(d) { return d.x < 180 ? "translate(0)" : "rotate(180)translate(-" + (d.label.length + 60)  + ")"; });
+   // TODO: appropriate transform
+   var nodeExit = node.exit().transition()
+       .duration(duration)
+       //.attr("transform", function(d) { return "diagonal(" + source.y + "," + source.x + ")"; })
+       .remove();
+   nodeExit.select("circle")
+       .attr("r", 20);
+   nodeExit.select("text")
+       .style("fill-opacity", 20);
+   // Update the links…
+   var link = svg.selectAll("path.link")
+       .data(links, function(d) { return d.target.id; });
+   // Enter any new links at the parent's previous position.
+   link.enter().insert("path", "g")
+       .attr("class", "link")
+       .attr("d", function(d) {
+         var o = {x: source.x0, y: source.y0};
+         return diagonal({source: o, target: o});
+       });
+   // Transition links to their new position.
+   link.transition()
+       .duration(duration)
+       .attr("d", diagonal);
+   // Transition exiting nodes to the parent's new position.
+   link.exit().transition()
+       .duration(duration)
+       .attr("d", function(d) {
+         var o = {x: source.x, y: source.y};
+         return diagonal({source: o, target: o});
+       })
+       .remove();
+   // Stash the old positions for transition.
+   nodes.forEach(function(d) {
+     d.x0 = d.x;
+     d.y0 = d.y;
+   });
+  }
+  // Toggle children on click.
+  function click(d) {
+   if (d.children) {
      d._children = d.children;
-     d._children.forEach(collapse);
      d.children = null;
+   } else {
+     d.children = d._children;
+     d._children = null;
    }
-}
-</script>
+
+   update(d);
+  }
+  // Collapse nodes
+  function collapse(d) {
+   if (d.children) {
+       d._children = d.children;
+       d._children.forEach(collapse);
+       d.children = null;
+     }
+  }
+  </script>
 </body>
