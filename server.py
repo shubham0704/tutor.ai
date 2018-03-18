@@ -26,16 +26,9 @@ class BaseHandler(RequestHandler):
             lines = []
             for line in traceback.format_exception(*kwargs["exc_info"]):
                 lines.append(line)
-            self.write(json.dumps({
-                        'error': flag,
-                        'message': self._reason,
-                        'traceback': lines
-                }))
+            self.render("500.html", data={'error': flag, 'message': self._reason, 'traceback': lines})
         else:
-            self.write(json.dumps({
-                    'error': flag,
-                    'message': self._reason
-                }))
+            self.render("500.html", data={'error': flag, 'message': self._reason, 'traceback': None})
 
 class fourHandler(RequestHandler):
     def get(self):
@@ -47,7 +40,7 @@ class uploadHandler(RequestHandler):
         self.render("upload.html")
 
 
-class MLHandler(RequestHandler):
+class MLHandler(BaseHandler):
 
     @staticmethod
     def upload(fileinfo):
@@ -87,7 +80,9 @@ class MLHandler(RequestHandler):
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
             G = GraphBuilder(mc=mc)
-            print "LOGS ",G
+            js = G.get_json()
+            js = json.dumps(js)
+            print "LOGS ",js
             print(questions," ",answers)
             self.render("answer.html", questions=questions, answers=answers)
             # self.write(json.dumps({
@@ -98,7 +93,9 @@ class MLHandler(RequestHandler):
     def get(self):
         self.render('index.html')
 
-
+class myfourHandler(BaseHandler):
+    def get(self):
+        self.render("404.html")
 
 
 if __name__ == "__main__":
@@ -106,7 +103,8 @@ if __name__ == "__main__":
     options.parse_command_line()
     settings = {
         "debug": True,
-        "cookie_secret": "LPBDqiL4S8KGi54y5eXFLoSiKE+wz0vajAU6K9aZOJ4="
+        "cookie_secret": "LPBDqiL4S8KGi54y5eXFLoSiKE+wz0vajAU6K9aZOJ4=",
+        "default_handler_class": myfourHandler
     }
     app = Application(handlers=[
         (r"/", MLHandler),

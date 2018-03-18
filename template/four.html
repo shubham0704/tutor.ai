@@ -33,18 +33,20 @@
   </head>
   <body>
     <div class="container1">
-      <div class="row" style="margin-bottom:2.5%;margin-top:2.5%">
+
+          <div class="row" style="margin-bottom:2.5%;margin-top:2.5%">
+            {%for x,y in enumerate(zip(questions, answers)) %}
         <div class="col-md-4 col-sm-6">
           <div class="card text-center" style="padding:10%;background:black;color:white;opacity:0.7">
             <center><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/ai-bot-robot-technology-machine-3cad6573056c2037-512x512.png" style="height:70px; width:70px"></center><br>
                 <div class="card-header ashu">
-                  Question 1
+                  {{y[0].replace('blank0','_______')}}
                 </div>
                 <div class="card-body">
                   Enter your<span class=" hd txt-rotate" data-period="1000" data-rotate='[ "question here."]'></span>
                   <div class="form-group row" style="margin-top:8%">
                       <div class="col-sm-10 offset-sm-1">
-                          <input type="text" class="form-control" id="input" placeholder="Write your answer here">
+                          <input type="text" class="form-control" id="input" placeholder="{{y[1]}}">
                       </div>
                   </div>
                 </div>
@@ -53,103 +55,8 @@
                 </div>
         </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="card text-center" style="padding:10%;background:black;color:white;opacity:0.7">
-            <center><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/ai-bot-robot-technology-machine-3cad6573056c2037-512x512.png" style="height:70px; width:70px"></center><br>
-                <div class="card-header ashu">
-                  Question 2
-                </div>
-                <div class="card-body">
-                  Enter the question here
-                  <div class="form-group row" style="margin-top:8%">
-                      <div class="col-sm-10 offset-sm-1">
-                          <input type="text" class="form-control" id="input" placeholder="Write your answer here">
-                      </div>
-                  </div>
-                </div>
-                <div class="card-footer text-muted">
-                  <input class="btn btn-outline-success" value="Check">
-                </div>
-        </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="card text-center" style="padding:10%;background:black;color:white;opacity:0.7">
-            <center><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/ai-bot-robot-technology-machine-3cad6573056c2037-512x512.png" style="height:70px; width:70px"></center><br>
-                <div class="card-header ashu">
-                  Question 3
-                </div>
-                <div class="card-body">
-                  Enter the question here
-                  <div class="form-group row" style="margin-top:8%">
-                      <div class="col-sm-10 offset-sm-1">
-                          <input type="text" class="form-control" id="input" placeholder="Write your answer here">
-                      </div>
-                  </div>
-                </div>
-                <div class="card-footer text-muted">
-                  <input class="btn btn-outline-success" value="Check">
-                </div>
-        </div>
-        </div>
+        {% end %}
       </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6">
-          <div class="card text-center" style="padding:10%;background:black;color:white;opacity:0.7">
-            <center><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/ai-bot-robot-technology-machine-3cad6573056c2037-512x512.png" style="height:70px; width:70px"></center><br>
-                <div class="card-header ashu">
-                  Question 4
-                </div>
-                <div class="card-body">
-                  Enter the question here
-                  <div class="form-group row" style="margin-top:8%">
-                      <div class="col-sm-10 offset-sm-1">
-                          <input type="text" class="form-control" id="input" placeholder="Write your answer here">
-                      </div>
-                  </div>
-                </div>
-                <div class="card-footer text-muted">
-                  <input class="btn btn-outline-success" value="Check">
-                </div>
-        </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="card text-center" style="padding:10%;background:black;color:white;opacity:0.7">
-            <center><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/ai-bot-robot-technology-machine-3cad6573056c2037-512x512.png" style="height:70px; width:70px"></center><br>
-                <div class="card-header ashu">
-                  Question 5
-                </div>
-                <div class="card-body">
-                  Enter the question here
-                  <div class="form-group row" style="margin-top:8%">
-                      <div class="col-sm-10 offset-sm-1">
-                          <input type="text" class="form-control" id="input" placeholder="Write your answer here">
-                      </div>
-                  </div>
-                </div>
-                <div class="card-footer text-muted">
-                  <input class="btn btn-outline-success" value="Check">
-                </div>
-        </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="card text-center" style="padding:10%;background:black;color:white;opacity:0.7">
-            <center><img src="https://cdn.iconscout.com/public/images/icon/premium/png-512/ai-bot-robot-technology-machine-3cad6573056c2037-512x512.png" style="height:70px; width:70px"></center><br>
-                <div class="card-header ashu">
-                  Question 6
-                </div>
-                <div class="card-body">
-                  Enter the question here
-                  <div class="form-group row" style="margin-top:8%">
-                      <div class="col-sm-10 offset-sm-1">
-                          <input type="text" class="form-control" id="input" placeholder="Write your answer here">
-                      </div>
-                  </div>
-                </div>
-                <div class="card-footer text-muted">
-                  <input class="btn btn-outline-success" value="Check">
-                </div>
-        </div>
-        </div>
     </div>
       <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
