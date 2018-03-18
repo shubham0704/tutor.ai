@@ -86,7 +86,7 @@ class MLHandler(BaseHandler):
             js = G.get_json()
             js = json.dumps(js)
             print "LOGS ",js
-            self.render("graph.html", questions=questions, answers=answers)
+            self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
             # self.write(json.dumps({
             #         'error': False,
             #         'message': "Uploaded"
