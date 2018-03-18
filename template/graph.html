@@ -32,7 +32,7 @@
         <center><h2 style="margin:50px;color:white">Mind Map</h2></center>
         <div id="map" class="col-md-10" style="background:white;margin:2% 7% 7% 7%;border-radius:25px">
         </div>
-        <center><a href="index.html" class="btn btn-primary">Go Back</a></center>
+        <center><a href="/index.html" class="btn btn-primary">Go Back</a></center>
       </div>
     </div>
 
@@ -210,7 +210,6 @@
   var margin = {top: 20, right: 120, bottom: 20, left: 120},
      width = diameter,
      height = diameter;
-
   var i = 0,
      duration = 350,
      root;
@@ -248,7 +247,6 @@
        .attr("r", 20)
        .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; })
        .style("transform","scale(2.0)");
-
    nodeEnter.append("text")
        .attr("x", 1e-6)
        .attr("dy", "18px")
@@ -315,7 +313,6 @@
      d.children = d._children;
      d._children = null;
    }
-
    update(d);
   }
   // Collapse nodes
