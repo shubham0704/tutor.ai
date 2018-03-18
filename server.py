@@ -88,7 +88,7 @@ class MLHandler(BaseHandler):
             # js = json.dumps(js)
             # print "LOGS ",js," giant ",giant_graph
             # print(questions," ",answers)
-            self.render("answer.html", questions=questions, answers=answers)
+            self.render("graph.html", questions=questions, answers=answers)
             # self.write(json.dumps({
             #         'error': False,
             #         'message': "Uploaded"
