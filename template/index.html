@@ -32,7 +32,7 @@
                   <div class="row">
                       <div class="col-12 col-md-6 offset-md-3 t">
                           <h1 class="hd">Your own
-                              <span class="txt-rotate" data-period="1000" data-rotate='[ "Personal Tutor", "Study Bddy", "mind maps", "tutor", "test-taker"]'></span>
+                              <span class="txt-rotate" data-period="1000" data-rotate='[ "Personal Tutor", "Study Buddy", "mind maps", "tutor", "test-taker"]'></span>
                           </h1>
                           <div style="width:800px">
                             <h2>One stop solution to all-round study-assistance</h2>
@@ -114,6 +114,14 @@
     $(document).ready(function() {
     	$('#fullpage').fullpage();
     });
+
+
+      $(".custom-file-input").change(function(){
+        var fieldVal = $(this).val();
+        if (fieldVal !== undefined || fieldVal !== "") {
+          $(".custom-file-label").text(fieldVal);
+        }
+      });
     </script>
   </body>
 </html>
