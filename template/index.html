@@ -32,7 +32,7 @@
                   <div class="row">
                       <div class="col-12 col-md-6 offset-md-3 t">
                           <h1 class="hd">Your own
-                              <span class="txt-rotate" data-period="1000" data-rotate='[ "Personal Tutor", "Study Bddy", "mind maps", "tutor", "test-taker"]'></span>
+                              <span class="txt-rotate" data-period="1000" data-rotate='[ "Personal Tutor", "Study Buddy", "mind maps", "tutor", "test-taker"]'></span>
                           </h1>
                           <div style="width:800px">
                             <h2>One stop solution to all-round study-assistance</h2>
@@ -45,7 +45,7 @@
 
           </div>
       </div>
-      <div class="section" id="g" style="background:linear-gradient(160deg,#02ccba,#aa7ecd)" >
+      <div class="section" id="g" style="background:linear-gradient(180deg,#222,#02ccba,#aa7ecd)" >
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-10 offset-md-1">
@@ -72,48 +72,48 @@
                   </form>
         </div>
       </div>
-      <div class="section" style="background:linear-gradient(200deg,#aa7ecd,#02ccba)" >
+      <div class="section" id="sec" style="background:linear-gradient(180deg,#aa7ecd,white)" >
+        <br><br>
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-6">
-              <center>
-                <div class="card border-info text-center text-info" style="height:540px; font-weight:'bold'; ">
+
+                <div class="card text-info" style="height:540px; font-weight:'bold'; ">
                   <div class="card-header border-info" style="box-shadow:inset 0 -25px 35px -5px rgba(0,0,0,.2);">
                     <b>MindMap</b>
                   </div>
-                  <div class="card-body border-info text-muted" >
-                    <p>A mind-map helps us understand the concepts and the relationships between them.</p>
+                  <div class="card-body text-muted" >
+                    <br><br><br><p>A mind-map helps us understand the concepts and the relationships between them.</p>
                     <p class="card-title text-info"><strong>Advantages:</strong></p>
                     <p>Adaptable</p>
                     <p>Easy to add ideas later, at any time</p>
                     <p>essay plans</p>
                     <p>Help you focus on the links and relationships between ideas so you don't just have disconnected facts.</p>
                   </div>
-                  <center>
-                    <a href="graph.html" class="btn btn-info">View mind-map</a>
-                  </center>
-                  <br>
-                  <br>
-                  <div >
-                    Click on the above button to view the mind map
-                  </div>
                 </div>
-              </center>
+
             </div>
               <div class="col-12 col-md-6">
-                <img style="box-shadow:inset 0 -25px 35px -5px rgba(0,0,0,.3);" class="img-thumbnail" src="../static/dots_brain.png"  />
+                <img style="box-shadow:inset 0 0px 0px -5px rgba(0,0,0,0);" class="img-thumbnail" src="../static/dots_brain.png"  />
               </div>
           </div>
 
       </div>
     </div>
-
     </div>
 
     <script>
     $(document).ready(function() {
     	$('#fullpage').fullpage();
     });
+
+
+      $(".custom-file-input").change(function(){
+        var fieldVal = $(this).val();
+        if (fieldVal !== undefined || fieldVal !== "") {
+          $(".custom-file-label").text(fieldVal);
+        }
+      });
     </script>
   </body>
 </html>
