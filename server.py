@@ -87,6 +87,7 @@ class MLHandler(RequestHandler):
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
             G = GraphBuilder(mc=mc)
+            print "LOGS ",G
             print(questions," ",answers)
             self.render("answer.html", questions=questions, answers=answers)
             # self.write(json.dumps({
