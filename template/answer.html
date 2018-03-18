@@ -1,56 +1,102 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=no">
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>The tutor</title>
-</head>
-<body>
-<nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            tutor.ai
-        </a>
-    </div>
-</nav>
-<div class="rounded notmine">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Questions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Answers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Mind-Map</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-            {% questions = ''%}
-            {% answers = ''%}
-            {%	for question_set in questions: %}
-                {% for question in question_set: %}
-                    {% questions.append(' '.join(question[0]).replace('blank_0','________'))%}
-                    {% answers.append(question[1]) %}
-                {% end %}
-            {% end %}
-
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">{{'\n'.join(questions)}}</div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">{{'\n'.join(answers)}}</div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
+  </head>
+  <body style="background:linear-gradient(160deg,#02ccba,#aa7ecd)">
+      <div class="row">
+        <div class="col-sm-12 offset-md-1 col-md-10">
+          <center><h2 style="margin:50px;fonr-family:Roboto">Test your progress by answering these questions</h2></center>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <center><div class="card text-center" style="width:50%;padding:8%;margin:2% 10% 10% 10%;background:white;opacity:1;border-radius:15px">
+                        <div class="btn btn-primary">
+                          <b>Question 1</b>
+                        </div>
+                        <form class="form-group">
+                        <div class="card-body text-muted">
+                          Enter question here.
+                        </div>
+                        <center><input style="padding:6px;width:400px;border-radius:8px" placeholder="Enter your answer here"></center>
+                        <br><br><div>
+                          Click on the below button to submit your answer
+                        </div>
+                        <input style="margin-top:50px" type="submit" value="Check answer" class="btn btn-info">
+                      </form>
+                </div></center>
+                </div>
+                <div class="carousel-item">
+                  <center><div class="card text-center" style="width:50%;padding:8%;margin:2% 10% 10% 10%;background:white;opacity:1;border-radius:15px">
+                        <div class="btn btn-primary">
+                          <b>Question 2</b>
+                        </div>
+                        <form class="form-group">
+                        <div class="card-body text-muted">
+                          Enter question here.
+                        </div>
+                        <center><input style="padding:6px;width:400px;border-radius:8px" placeholder="Enter your answer here"></center>
+                        <br><br><div>
+                          Click on the below button to submit your answer
+                        </div>
+                        <input type="submit" style="margin-top:50px" value="Check answer" class="btn btn-info">
+                      </form>
+                </div></center>
+                </div>
+                <div class="carousel-item">
+                  <center><div class="card text-center" style="width:50%;padding:8%;margin:2% 10% 10% 10%;background:white;opacity:1;border-radius:15px;">
+                        <div class="btn btn-primary">
+                          <b>Question 3</b>
+                        </div>
+                        <form class="form-group">
+                        <div class="card-body text-muted">
+                          Enter question here.
+                        </div>
+                        <center><input style="padding:6px;width:400px;border-radius:8px" placeholder="Enter your answer here"></center>
+                        <br><br><div>
+                          Click on the below button to submit your answer
+                        </div>
+                        <input type="submit" style="margin-top:50px" value="Check answer" class="btn btn-info">
+                      </form>
+                </div></center>
+                </div>
+              </div>
+              <!-- Controls -->
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+            </a>
+            </div>
         </div>
-    </div>
+      </div>
 
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-</body>
+    <script type="text/javascript">
+      $('.carousel').carousel({
+        interval: 6000,
+        pause: "false"
+      });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
