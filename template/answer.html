@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   </head>
-  <body style="background:linear-gradient(160deg,#02ccba,#aa7ecd)">
+  <body style="background:linear-gradient(160deg,#aa7ecd,#02ccba,#aa7ecd);min-height:100vh; background-size:cover;">
       <div class="row">
         <div class="col-sm-12 offset-md-1 col-md-10">
-          <center><h2 style="margin:50px;fonr-family:Roboto">Test your progress by answering these questions</h2></center>
+          <center><h2 style="margin:50px;fonr-family:Roboto;color:white">Test your progress by answering these questions</h2></center>
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
               <ol class="carousel-indicators">
@@ -33,16 +33,14 @@
                         <div class="btn btn-primary">
                           <b>Question {{x}}</b>
                         </div>
-                        <form class="form-group">
                         <div class="card-body text-muted">
                           {{y[0].replace('blank0','_______')}}
                         </div>
-                        <center><input style="padding:6px;width:400px;border-radius:8px" placeholder="{{y[1]}}"></center>
-                        <br><br><div>
-                          Click on the below button to submit your answer
-                        </div>
-                        <input style="margin-top:50px" type="submit" value="Check answer" class="btn btn-info">
-                      </form>
+
+                        <center>
+                        <br><br>
+                        <div id="{{x}}" class="btn btn-outline-success" style="display:none"> {{y[1]}}</div>
+                        <button style="margin-top:50px" class="btn btn-info" onclick="document.getElementById('{{x}}').style.display = 'block';">check answer</button>
                 </div></center>
                 </div>
                 {% end %}
@@ -61,10 +59,11 @@
 
     <script type="text/javascript">
       $('.carousel').carousel({
-        interval: 6000,
-        pause: "false"
+        interval: false,
+        pause: true
       });
     </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

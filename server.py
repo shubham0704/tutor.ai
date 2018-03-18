@@ -79,11 +79,13 @@ class MLHandler(BaseHandler):
             sents = sentences.values()[:]
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
-            G = GraphBuilder(mc=mc)
-            js = G.get_json()
-            js = json.dumps(js)
-            print "LOGS ",js
-            print(questions," ",answers)
+            # G = GraphBuilder(mc=mc)
+            # js = G.get_json()
+            # giant_graph = G.gen_giant_graph(sents)
+            # print giant_graph.nodes,' bro ',giant_graph.edges
+            # js = json.dumps(js)
+            # print "LOGS ",js," giant ",giant_graph
+            # print(questions," ",answers)
             self.render("answer.html", questions=questions, answers=answers)
             # self.write(json.dumps({
             #         'error': False,
