@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
   <body style="background:linear-gradient(160deg,#aa7ecd,#02ccba,#aa7ecd);min-height:100vh; background-size:cover;">
       <div class="row">
         <div class="col-sm-12 offset-md-1 col-md-10">
-          <center><h2 style="margin:50px;fonr-family:Roboto;color:white">Test your progress by answering these questions</h2></center>
+          <center><h2 style="margin:50px;font-family:Roboto;color:white">Test your progress by answering these questions</h2></center>
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
               <ol class="carousel-indicators">
@@ -29,7 +29,7 @@
                   {% else %}
                   <div class="carousel-item">
                     {% end %}
-                  <center><div class="card text-center" style="width:50%;padding:8%;margin:2% 10% 10% 10%;background:white;opacity:1;border-radius:15px">
+                      <center><div class="card text-center" style="width:50%;padding:8%;margin:2% 10% 10% 10%;background:white;opacity:1;border-radius:15px"></center>
                         <div class="btn btn-primary">
                           <b>Question {{x}}</b>
                         </div>
@@ -41,9 +41,13 @@
                         <br><br>
                         <div id="{{x}}" class="btn btn-outline-success" style="display:none"> {{y[1]}}</div>
                         <button style="margin-top:50px" class="btn btn-info" onclick="document.getElementById('{{x}}').style.display = 'block';">check answer</button>
-                </div></center>
                 </div>
+                    </center>
+                </div>
+                    </div>
                 {% end %}
+          </div>
+              </div>
               <!-- Controls -->
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -54,20 +58,19 @@
             <span class="sr-only">Next</span>
             </a>
             </div>
-        </div>
-      </div>
 
-    <script type="text/javascript">
-      $('.carousel').carousel({
-        interval: false,
-        pause: true
-      });
-    </script>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script type="text/javascript">
+      $('.carousel').carousel({
+        interval: false,
+        pause: true
+      });
+    </script>
   </body>
 </html>
