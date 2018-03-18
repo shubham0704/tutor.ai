@@ -77,7 +77,9 @@ class MLHandler(BaseHandler):
             ss = SentenceSelection(ratio=ratio)
             sentences = ss.prepare_sentences(document)
             sents = sentences.values()[:]
+            print("sents here ",sents)
             questions, answers = qgen.generate_questions(sents)
+            print(questions, " ",answers)
             # mc = main_concept(sents)
             # G = GraphBuilder(mc=mc)
             # js = G.get_json()
