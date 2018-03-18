@@ -12,7 +12,7 @@
   <body style="background:linear-gradient(160deg,#aa7ecd,#02ccba,#aa7ecd);min-height:100vh; background-size:cover;">
       <div class="row">
         <div class="col-sm-12 offset-md-1 col-md-10">
-          <center><h2 style="margin:50px;font-family:Roboto;color:white">Test your progress by answering these questions</h2></center>
+          <h2 style="margin:50px;font-family:Roboto;color:white">Test your progress by answering these questions</h2>
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
               <ol class="carousel-indicators">
@@ -29,7 +29,7 @@
                   {% else %}
                   <div class="carousel-item">
                     {% end %}
-                      <center><div class="card text-center" style="width:50%;padding:8%;margin:2% 10% 10% 10%;background:white;opacity:1;border-radius:15px"></center>
+                      <div class="card text-center" style="width:50%;padding:8%;margin:2% 10% 10% 10%;background:white;opacity:1;border-radius:15px">
                         <div class="btn btn-primary">
                           <b>Question {{x}}</b>
                         </div>
@@ -37,17 +37,18 @@
                           {{y[0].replace('blank0','_______')}}
                         </div>
 
-                        <center>
                         <br><br>
                         <div id="{{x}}" class="btn btn-outline-success" style="display:none"> {{y[1]}}</div>
                         <button style="margin-top:50px" class="btn btn-info" onclick="document.getElementById('{{x}}').style.display = 'block';">check answer</button>
                 </div>
-                    </center>
+
                 </div>
                     </div>
                 {% end %}
           </div>
               </div>
+        </div>
+      </div>
               <!-- Controls -->
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -57,10 +58,6 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
             </a>
-            </div>
-
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
