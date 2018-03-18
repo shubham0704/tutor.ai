@@ -23,8 +23,6 @@
               </ol>
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
-                  {{questions}}
-                  {{answers}}
                 {% for x,y in enumerate(zip(questions, answers)) %}
                 {% if x==0 %}
                 <div class="carousel-item active">
