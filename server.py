@@ -78,7 +78,7 @@ class MLHandler(BaseHandler):
             sentences = ss.prepare_sentences(document)
             sents = sentences.values()[:]
             questions, answers = qgen.generate_questions(sents)
-            mc = main_concept(sents)
+            # mc = main_concept(sents)
             # G = GraphBuilder(mc=mc)
             # js = G.get_json()
             # giant_graph = G.gen_giant_graph(sents)
