@@ -85,7 +85,7 @@ class MLHandler(BaseHandler):
             giant_graph = G.gen_giant_graph(sents)
             js = G.get_json()
             js = json.dumps(js)
-            print "LOGS ",js
+            print "LOGS question length",len(questions)
             self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
             # self.write(json.dumps({
             #         'error': False,
