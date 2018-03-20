@@ -167,7 +167,8 @@ text-align: center;
 .im img{
     position: absolute;
     max-width: 100%;
-    transition: all 0.3s;    
+    transition: all 0.3s;
+    box-shadow:inset -5px -25px 25px 5px rgba(0,0,0,0.4);    
 }
 .card{
     height:540px; 
