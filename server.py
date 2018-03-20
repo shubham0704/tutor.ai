@@ -10,6 +10,7 @@ from os.path import splitext
 from ai_tutor.get_triples import QuestionGenerator
 from ai_tutor.sentence_selector import SentenceSelection
 from ai_tutor.mind_map import main_concept, GraphBuilder
+from tornado.gen import coroutine
 
 __UPLOADS__ = "uploads/"
 define("port", default=8080, help="runs on the given port", type=int)
@@ -67,6 +68,7 @@ class MLHandler(BaseHandler):
             }
         return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname}
 
+    @coroutine
     def post(self):
         response = self.upload(fileinfo=self.request.files['thefile'][0])
         print(response)
@@ -81,16 +83,18 @@ class MLHandler(BaseHandler):
             questions, answers = qgen.generate_questions(sents)
             print(questions, " ",answers)
             mc = main_concept(sents)
-            G = GraphBuilder(mc=mc)
-            giant_graph = G.gen_giant_graph(sents)
-            js = G.get_json()
-            js = json.dumps(js)
-            print "LOGS question length",len(questions)
-            self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
-            # self.write(json.dumps({
-            #         'error': False,
-            #         'message': "Uploaded"
-            #      }))
+            G =  GraphBuilder(mc=mc)
+            try:
+                yield G.gen_giant_graph(sents)
+                js = G.get_json()
+                js = json.dumps(js)
+                print "LOGS question length", len(questions)
+                self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
+            except:
+                js = G.get_json()
+                js = json.dumps(js)
+                print "LOGS question length",len(questions)
+                self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
 
     def get(self):
         self.render('index.html')
