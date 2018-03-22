@@ -1,9 +1,8 @@
-FROM ubuntu
+FROM python2.7-slim
 EXPOSE 8080
 
-RUN apt-get clean && \
-    apt-get -y update &&\
-    apt-get -y install gcc ca-certificates gettext-base poppler-utils swig python-dev
+RUN apt-get -y update &&\
+    apt-get -y install poppler-utils swig python-dev build-essential libpulse-dev
 
 RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app
