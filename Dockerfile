@@ -1,4 +1,4 @@
-FROM python2.7-slim
+FROM python:2.7-slim
 EXPOSE 8080
 
 RUN apt-get -y update &&\
@@ -8,6 +8,7 @@ RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app
 
 COPY requirements.txt /usr/src/app/
+RUN pip install pip==9.0.1
 RUN pip install -r requirements.txt
 
 RUN python -m nltk.downloader stopwords
