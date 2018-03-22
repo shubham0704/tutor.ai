@@ -78,7 +78,7 @@ class MLHandler(BaseHandler):
             ratio = 0.4
             ss = SentenceSelection(ratio=ratio)
             sentences = ss.prepare_sentences(document)
-            sents = sentences.values()[:]
+            sents = list(sentences.values())[:]
             print("sents here ",sents)
             questions, answers = qgen.generate_questions(sents)
             print(questions, " ",answers)
