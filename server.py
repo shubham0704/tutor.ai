@@ -88,12 +88,12 @@ class MLHandler(BaseHandler):
                 yield G.gen_giant_graph(sents)
                 js = G.get_json()
                 js = json.dumps(js)
-                print "LOGS question length", len(questions)
+                print ("LOGS question length", len(questions))
                 self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
             except:
                 js = G.get_json()
                 js = json.dumps(js)
-                print "LOGS question length",len(questions)
+                print ("LOGS question length",len(questions))
                 self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
 
     def get(self):
