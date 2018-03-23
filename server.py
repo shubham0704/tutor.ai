@@ -79,18 +79,20 @@ class MLHandler(BaseHandler):
             ss = SentenceSelection(ratio=ratio)
             sentences = ss.prepare_sentences(document)
             sents = list(sentences.values())[:]
-            print("sents here ",sents)
+            #print("sents here ",sents)
             questions, answers = qgen.generate_questions(sents)
-            print(questions, " ",answers)
+            #print(questions, " ",answers)
             mc = main_concept(sents)
             G =  GraphBuilder(mc=mc)
             try:
                 yield G.gen_giant_graph(sents)
                 js = G.get_json()
                 js = json.dumps(js)
+                print(js)
                 print ("LOGS question length", len(questions))
                 self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
             except:
+                print("Encountered some error")
                 js = G.get_json()
                 js = json.dumps(js)
                 print ("LOGS question length",len(questions))
