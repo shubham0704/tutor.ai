@@ -86,14 +86,14 @@ class MLHandler(BaseHandler):
             G =  GraphBuilder(mc=mc)
             try:
                 yield G.gen_giant_graph(sents)
-                js = G.get_json()
+                js = yield G.get_json()
                 js = json.dumps(js)
                 print(js)
                 print ("LOGS question length", len(questions))
                 self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
             except:
                 print("Encountered some error")
-                js = G.get_json()
+                js = yield G.get_json()
                 js = json.dumps(js)
                 print ("LOGS question length",len(questions))
                 self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
