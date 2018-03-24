@@ -10,7 +10,7 @@ from os.path import splitext
 from ai_tutor.get_triples import QuestionGenerator
 from ai_tutor.sentence_selector import SentenceSelection
 from ai_tutor.mind_map import main_concept, GraphBuilder
-from tornado.gen import coroutine
+from tornado.gen import coroutine,BadYieldError
 
 __UPLOADS__ = "uploads/"
 define("port", default=8080, help="runs on the given port", type=int)
@@ -27,9 +27,9 @@ class BaseHandler(RequestHandler):
             lines = []
             for line in traceback.format_exception(*kwargs["exc_info"]):
                 lines.append(line)
-            self.render("500.html", data={'error': flag, 'message': self._reason, 'traceback': lines})
+            self.render("500.html", data={'error': flag, 'message': self._reason})
         else:
-            self.render("500.html", data={'error': flag, 'message': self._reason, 'traceback': None})
+            self.render("500.html", data={'error': flag, 'message': self._reason})
 
 class fourHandler(RequestHandler):
     def get(self):
@@ -68,7 +68,7 @@ class MLHandler(BaseHandler):
             }
         return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname}
 
-    @coroutine
+
     def post(self):
         response = self.upload(fileinfo=self.request.files['thefile'][0])
         print(response)
@@ -79,24 +79,16 @@ class MLHandler(BaseHandler):
             ss = SentenceSelection(ratio=ratio)
             sentences = ss.prepare_sentences(document)
             sents = list(sentences.values())[:]
-            #print("sents here ",sents)
             questions, answers = qgen.generate_questions(sents)
-            #print(questions, " ",answers)
             mc = main_concept(sents)
             G =  GraphBuilder(mc=mc)
-            try:
-                yield G.gen_giant_graph(sents)
-                js = yield G.get_json()
-                js = json.dumps(js)
-                print(js)
-                print ("LOGS question length", len(questions))
-                self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
-            except:
-                print("Encountered some error")
-                js = yield G.get_json()
-                js = json.dumps(js)
-                print ("LOGS question length",len(questions))
-                self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
+            G.gen_giant_graph(sents)
+            js = G.get_json()
+            js = json.dumps(js)
+            print(js)
+            print("LOGS question length", len(questions))
+            self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
+
 
     def get(self):
         self.render('index.html')
