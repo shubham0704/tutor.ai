@@ -12,6 +12,7 @@ from ai_tutor.sentence_selector import SentenceSelection
 from ai_tutor.mind_map import main_concept, GraphBuilder
 import logging
 from tornado.log import enable_pretty_logging
+from tornado import locks
 from tornado.concurrent import Future
 
 
@@ -82,13 +83,13 @@ class MLHandler(BaseHandler):
     @staticmethod
     def call(graph, sents):
         draft = graph.gen_giant_graph(sents)
-        if draft is not None:
-            return True
-        return False
+        fetch_future = graph.get_json()
+        return fetch_future
 
 
     async def post(self):
         response = self.upload(fileinfo=self.request.files['thefile'][0])
+        lock = locks.Lock()
         print(response)
         if response['error'] == False:
             document = os.path.join(os.path.dirname(__file__),response['file_loc'])
@@ -100,15 +101,11 @@ class MLHandler(BaseHandler):
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
             G =  GraphBuilder(mc=mc)
-            flag = self.call(G, sents)
-            if flag:
-                js = G.get_json()
-                js = json.dumps(js)
-                print("LOGS graph ", js)
-                print("LOGS question length", len(questions))
-                self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
-            else:
-                raise MyAppException(reason="call ain't working",status_code=500)
+            async with lock:
+                flag = self.call(G, sents)
+            print("LOGS graph ", flag)
+            print("LOGS question length", len(questions))
+            self.render("graph.html", questions=questions, answers=answers, jsonZ=json.dumps(flag))
 
 
 

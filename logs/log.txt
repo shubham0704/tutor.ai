@@ -14,3 +14,21 @@ Traceback (most recent call last):
   File "/home/souldiv/git-repos/tutor.ai/server.py", line 103, in post
     flag = await self.call(G, sents)
 TypeError: object bool can't be used in 'await' expression
+Uncaught exception POST / (127.0.0.1)
+HTTPServerRequest(protocol='http', host='localhost:8080', method='POST', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Host': 'localhost:8080', 'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:47.0) Gecko/20100101 Firefox/47.0', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Accept-Language': 'en-US,en;q=0.5', 'Accept-Encoding': 'gzip, deflate', 'Referer': 'http://localhost:8080/', 'Cookie': 'username-localhost-8888="2|1:0|10:1521900233|23:username-localhost-8888|44:ODhjMmFjOGNlYTA2NDNkZDk2MTIwM2RjNjRiMWI0ZDI=|8a87f65fbb8ce3dc6b38969f13173bf111a3f29526c8125f2fd081dd13948447"; _xsrf=2|2bb656d1|ac117d37554f5203432986ea8c5aeaff|1521652699; username-localhost-8889="2|1:0|10:1521828538|23:username-localhost-8889|44:NjYxNjdiYjI0M2IzNDk0OTlmMDE4NTk4YTRhMTU4ZDM=|d157e29854b14c56664a7d6e379fe3c0cef0ff01b4c6f6f6a29d9515fd0fb76f"', 'Connection': 'keep-alive', 'Content-Type': 'multipart/form-data; boundary=---------------------------10580371971234574601930552156', 'Content-Length': '2422'})
+Traceback (most recent call last):
+  File "/home/souldiv/anaconda3/envs/pyt36/lib/python3.6/site-packages/tornado/web.py", line 1469, in _execute
+    result = yield result
+  File "/home/souldiv/anaconda3/envs/pyt36/lib/python3.6/site-packages/tornado/gen.py", line 1015, in run
+    value = future.result()
+  File "/home/souldiv/anaconda3/envs/pyt36/lib/python3.6/site-packages/tornado/concurrent.py", line 237, in result
+    raise_exc_info(self._exc_info)
+  File "<string>", line 3, in raise_exc_info
+  File "/home/souldiv/anaconda3/envs/pyt36/lib/python3.6/site-packages/tornado/gen.py", line 285, in wrapper
+    yielded = next(result)
+  File "<string>", line 6, in _wrap_awaitable
+  File "/home/souldiv/git-repos/tutor.ai/server.py", line 106, in post
+    flag = await self.call(G, sents)
+  File "/home/souldiv/git-repos/tutor.ai/server.py", line 87, in call
+    fetch_future.add_done_callback(
+AttributeError: 'dict' object has no attribute 'add_done_callback'
