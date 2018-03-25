@@ -10,9 +10,20 @@ from os.path import splitext
 from ai_tutor.get_triples import QuestionGenerator
 from ai_tutor.sentence_selector import SentenceSelection
 from ai_tutor.mind_map import main_concept, GraphBuilder
-from tornado.gen import coroutine,BadYieldError
+import logging
+from tornado.log import enable_pretty_logging
+
+
 
 __UPLOADS__ = "uploads/"
+__LOGS__ = "logs/"
+
+
+handler = logging.FileHandler(os.path.join(os.path.dirname(__file__), __LOGS__+"log.txt"))
+enable_pretty_logging()
+app_log = logging.getLogger("tornado.application")
+app_log.addHandler(handler)
+
 define("port", default=8080, help="runs on the given port", type=int)
 
 
@@ -66,10 +77,17 @@ class MLHandler(BaseHandler):
                 "error": True,
                 "message": "there was an error"
             }
-        return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname}
+        return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname, "filename": cname}
+
+    @staticmethod
+    def call(graph, sents):
+        draft = graph.gen_giant_graph(sents)
+        if draft is not None:
+            return True
+        return False
 
 
-    def post(self):
+    async def post(self):
         response = self.upload(fileinfo=self.request.files['thefile'][0])
         print(response)
         if response['error'] == False:
@@ -82,10 +100,17 @@ class MLHandler(BaseHandler):
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
             G =  GraphBuilder(mc=mc)
-            G.gen_giant_graph(sents)
-            js = G.get_json()
-            js = json.dumps(js)
-            print(js)
+            flag = self.call(G, sents)
+            if flag:
+                G.gen_giant_graph(sents)
+                js = G.get_json()
+                js = json.dumps(js)
+            else:
+                raise MyAppException(reason="call ain't working",status_code=500)
+            # if len(questions) == 0:
+            #     os.rename(os.path.join(os.path.dirname(__file__), response['file_loc']),
+            #               os.path.join(os.path.dirname(__file__), ))
+            print("LOGS graph ",js)
             print("LOGS question length", len(questions))
             self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
 
@@ -100,6 +125,7 @@ class myfourHandler(BaseHandler):
 
 if __name__ == "__main__":
     print("listening on port "+str(options.port))
+    # options.options['log_file_prefix'].set(log_file_prefix)
     options.parse_command_line()
     settings = {
         "debug": True,
