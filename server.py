@@ -100,9 +100,10 @@ class MLHandler(BaseHandler):
             sents = list(sentences.values())[:]
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
-            G =  GraphBuilder(mc=mc)
             async with lock:
+                G = GraphBuilder(mc=mc)
                 flag = self.call(G, sents)
+                del G
             print("LOGS graph ", flag)
             print("LOGS question length", len(questions))
             self.render("graph.html", questions=questions, answers=answers, jsonZ=json.dumps(flag))
