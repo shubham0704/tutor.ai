@@ -12,7 +12,7 @@ from ai_tutor.sentence_selector import SentenceSelection
 from ai_tutor.mind_map import main_concept, GraphBuilder
 import logging
 from tornado.log import enable_pretty_logging
-
+from tornado.concurrent import Future
 
 
 __UPLOADS__ = "uploads/"
@@ -102,17 +102,14 @@ class MLHandler(BaseHandler):
             G =  GraphBuilder(mc=mc)
             flag = self.call(G, sents)
             if flag:
-                G.gen_giant_graph(sents)
                 js = G.get_json()
                 js = json.dumps(js)
+                print("LOGS graph ", js)
+                print("LOGS question length", len(questions))
+                self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
             else:
                 raise MyAppException(reason="call ain't working",status_code=500)
-            # if len(questions) == 0:
-            #     os.rename(os.path.join(os.path.dirname(__file__), response['file_loc']),
-            #               os.path.join(os.path.dirname(__file__), ))
-            print("LOGS graph ",js)
-            print("LOGS question length", len(questions))
-            self.render("graph.html", questions=questions, answers=answers, jsonZ=js)
+
 
 
     def get(self):
