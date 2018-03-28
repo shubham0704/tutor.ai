@@ -81,15 +81,16 @@ class MLHandler(BaseHandler):
         return {"error": False, "message": "File Sucessfully Uploaded", "file_loc": __UPLOADS__ + cname, "filename": cname}
 
     @staticmethod
-    def call(graph, sents):
+    async def call(graph, sents):
         draft = graph.gen_giant_graph(sents)
+        print("DRAFT ",draft)
+        print(type(draft))
         fetch_future = graph.get_json()
         return fetch_future
 
 
     async def post(self):
         response = self.upload(fileinfo=self.request.files['thefile'][0])
-        lock = locks.Lock()
         print(response)
         if response['error'] == False:
             document = os.path.join(os.path.dirname(__file__),response['file_loc'])
@@ -100,13 +101,11 @@ class MLHandler(BaseHandler):
             sents = list(sentences.values())[:]
             questions, answers = qgen.generate_questions(sents)
             mc = main_concept(sents)
-            async with lock:
-                G = GraphBuilder(mc=mc)
-                flag = self.call(G, sents)
-                del G
-            print("LOGS graph ", flag)
+            G = GraphBuilder(mc=mc)
+            graphZ = await self.call(G, sents)
+            print("LOGS graph ", graphZ)
             print("LOGS question length", len(questions))
-            self.render("graph.html", questions=questions, answers=answers, jsonZ=json.dumps(flag))
+            self.render("graph.html", questions=questions, answers=answers, jsonZ=json.dumps(graphZ))
 
 
 
